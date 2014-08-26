@@ -6,8 +6,10 @@ Reference and Doc: [https://developers.soundcloud.com/docs/api/guide#authenticat
 
 -----------------------------------------------------------------------------------------------
 
+`go get github.com/vitorsvvv/go-soundcloud-oauth`
+
 ##Example
-```golang
+```
 
     package main
 
@@ -58,41 +60,7 @@ Reference and Doc: [https://developers.soundcloud.com/docs/api/guide#authenticat
     }
 ```
 
-
-##Documentation
-
-###Method signature
-```
-//Creates a client object to be used for authorization, token exchange and get the current user.
-func SoundcloudOauth(clientId, clientSecret, redirectUri, responseType, scope, grantType, failure, success string) (*OauthClient, error)
-```
-
-###Creating oauth object with the parameters
-```
-
-    // If you don't have an account and an app registered
-	// Go https://soundcloud.com/you/apps/
-	id := "{SOUNDCLOUD-APP-CLIENT-ID}"
-	secret := "{SOUNDCLOUD-APP-CLIENT-SECRET}"
-	redirectUri := "{SOUNDCLOUD-APP-CLIENT-ID}"
-
-	// If any error occur during the authorization process the user will be redirected to the home page
-	failureUrl := "/"
-	// If everything goes ok during the authorization process the user will be redirected to the profile page
-	successUrl := "/profile"
-
-	oauth, err := gosoundcloudoauth.SoundcloudOauth(id, secret, redirectUri, "", "", "", failureUrl, successUrl)
-	if err != nil {
-		log.Fatal(err)
-	}
-```
-
-##Usage
-
-Download `go get github.com/vitorsvvv/go-soundcloud-oauth`
-
-
-
+Check the full documented example [here.](https://github.com/vitorsvvv/go-soundcloud-oauth/blob/master/examples/server.go)
 
 
 ---
