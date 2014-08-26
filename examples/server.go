@@ -35,18 +35,23 @@ func main() {
 
 	// Login Route
 	http.HandleFunc("/login", func(res http.ResponseWriter, req *http.Request) {
+		//This method redirects a user to /connect endpoint, allowing them to delegate access to their account.
+		//https://developers.soundcloud.com/docs/api/reference#connect
 		oauth.AuthorizeUrl(res, req)
 	})
 
 	// Route registered as a Callback/Redirect URI in your app profile.
 	// Note that this same route must be provided as a parameter when instantiating SoundcloudOauth.
 	http.HandleFunc("/login/callback", func(res http.ResponseWriter, req *http.Request) {
+		//This method sends a POST request to /oauth2/token endpoint and is used to provision access tokens once a user has authorized your application.
+		//https://developers.soundcloud.com/docs/api/reference#token
 		oauth.ExchangeToken(res, req)
 	})
 
 	// Profile Route
 	http.HandleFunc("/profile", func(res http.ResponseWriter, req *http.Request) {
 
+	    //This method returns the current logged-in user and the token after a successful authorization
 		// You should now store the access token in a database.
 		// Associate it with the user it belongs to and use it from now on
 		// instead of sending the user through the authorization flow.

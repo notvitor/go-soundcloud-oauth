@@ -156,7 +156,7 @@ func (client *OauthClient) ExchangeToken(res http.ResponseWriter, req *http.Requ
 	http.Redirect(res, req, client.SuccessUrl, http.StatusFound )
 }
 
-//This method returns the current logged-in user after receiving the token
+//This method returns the current logged-in user and the token after a successful authorization
 func (client *OauthClient) GetCurrentUser() (user *User, oauthToken string, err error) {
 	if client.AccessToken == "" {
 		return nil, "", throw("GetCurrentUser():Error: Please provide a valid Access Token.")
@@ -222,5 +222,3 @@ func doRequest(url string) ([]byte, error) {
 func throw(message string, params ...interface{}) error {
 	return fmt.Errorf(message, params...)
 }
-
-
