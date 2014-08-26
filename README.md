@@ -2,6 +2,7 @@
 
 
 Go implementation of Soundcloud Oauth2 for Server-Side Web Applications.
+
 Reference and Doc: [https://developers.soundcloud.com/docs/api/guide#authentication](https://developers.soundcloud.com/docs/api/guide#authentication).
 
 -----------------------------------------------------------------------------------------------
@@ -117,7 +118,11 @@ type User struct {
 ```
 
 
+
+
 Check the full documented example [here.](https://github.com/vitorsvvv/go-soundcloud-oauth/blob/master/examples/server.go)
+
+
 
 
 
